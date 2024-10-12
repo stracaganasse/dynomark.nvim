@@ -5,6 +5,7 @@ local config = {
     results_view_location = "vertical",
     float_horizontal_offset = 0.2,
     float_vertical_offset = 0.2,
+    table_vertical_padding = 2,
 }
 
 local ns_id = vim.api.nvim_create_namespace("dynomark")
@@ -133,7 +134,7 @@ local function create_float_window(content)
     local min_width = 30
     local max_width = math.floor(vim.o.columns * 0.8)
 
-    local height = math.max(min_height, math.min(content_height, max_height))
+    local height = math.max(min_height, math.min(content_height + config.table_vertical_padding, max_height))
     local width = math.max(min_width, math.min(content_width, max_width))
 
     -- Calculate row to center the window vertically
